@@ -56,8 +56,8 @@ def main():
     move items into said folders
     print report of the files moved
     """
-    
-    progName = "Fernando's Directory Organizer"
+
+    progName = "quick Struct by Fernando Naim Sanchez"
     parserDescrip = "Organizes Directories"
     parserEpilog = "Don't koof too hard"
 
@@ -65,16 +65,22 @@ def main():
 
     parser.add_argument('-d','--directory',type=str, help="specificies directory, if not, program will default to using the directory command was used in")
 
+    parser.add_argument('-g','--group', type=str, nargs='+',help='choose file extensions to group together')
+
     parser.add_argument('-t', '--test',action='store_true', help="test arg")
     
     args = parser.parse_args()
 
     print("flag:", args.test)
  
-    workingDir = directoryChecker(args.directory)
+    #workingDir = directoryChecker(args.directory)
     #print(workingDir)
-    fileExtensions = scanFolderforExtensions(workingDir)
-    print(fileExtensions)
+    #fileExtensions = scanFolderforExtensions(workingDir)
+    #print(fileExtensions)
+    print(args.group)
+
+    if not args.group:
+        
 
 if __name__ == "__main__":
     main()
