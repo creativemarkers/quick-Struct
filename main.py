@@ -44,6 +44,68 @@ def scanFolderforExtensions(folderPath:str)->list:
 
     return fileExtensions
 
+def createNewFolders(fileExtensions:list)->None:
+
+    def compareList(list1):
+        for ele in list1:
+            if ele in fileExtensions:
+                return True
+        return False
+
+    def audioFiles():
+        audioFileExtensions = [
+            ".aif", ".cda", ".mid",
+            ".midi",".mp3",".mpa",
+            ".ogg",".wav",".wma",
+            "wpl",
+        ]
+        return audioFileExtensions
+
+    def discImageFiles():
+        discImageFileExtensions = [
+            ".bin", ".dmg", ".iso",
+            ".toast",".vcd"
+        ]
+        
+        return discImageFileExtensions
+
+
+    def dataFiles():
+        dataFileExtensions = [
+            ".csv", ".dat", ".db",
+            ".dbf",".mdb",".sql"
+        ]
+        return dataFileExtensions
+
+    def logFiles():
+        logFileExtensions = [
+            ".log"
+        ]
+        return logFileExtensions
+    
+
+    def emailFiles(emailExtensions):
+        pass
+
+
+    fileExtFn = [audioFiles,discImageFiles,dataFiles]
+
+    # for func in function_list:
+    # print("Calling function:", func.__name__)
+    # func()  # Call the function
+    """
+    example above how to get the name of functions
+    """
+    for fn in fileExtFn:
+        extensions = fn(fileExtensions)
+        if compareList(extensions):
+
+
+
+
+
+
+
 def main():
 
     """
@@ -71,16 +133,21 @@ def main():
     
     args = parser.parse_args()
 
-    print("flag:", args.test)
+    # print("flag:", args.test)
  
-    #workingDir = directoryChecker(args.directory)
-    #print(workingDir)
-    #fileExtensions = scanFolderforExtensions(workingDir)
-    #print(fileExtensions)
-    print(args.group)
+    # workingDir = directoryChecker(args.directory)
+    # print(workingDir)
+    # fileExtensions = scanFolderforExtensions(workingDir)
+    # print(fileExtensions)
+    # print(args.group)
 
-    if not args.group:
-        
+    # if not args.group:
+
+    # if group arg is selected it should go first then the default
+    # folder creation
+
+    createNewFolders([1,2,3])
+
 
 if __name__ == "__main__":
     main()
